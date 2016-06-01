@@ -6,37 +6,33 @@ if (global.Promise == null) {
 
 
 var path = require('path');
-//var webpack = require('webpack');
+var webpack = require('webpack');
 var React = require('react');
 var ReactDOM =require('react-dom');
 
 
-//var $ = require('jquery');
-// load everything 
-//require('jquery-ui');
-
 module.exports = {
-    context: path.join(__dirname, 'App'),
-    entry: {
-      //CheckForm:'./CheckForm.jsx'
-      //,DesignForm:'./DesignForm.jsx'
-      //,
-      cascadeselect:'./cascadeselect.jsx'
-    },
-    output: {
-        path: path.join(__dirname, 'Scripts/Flow'),
-        filename: '[name].bundle.js'
-    },
-    module: {
-    loaders: [
-      {test: /\.css$/ , loader: 'style-loader!css-loader?sourceMap'},
-      {
-        // Test for js or jsx files.
-        test: /\.jsx?$/,
-        exclude: /node_modules/,
-        loader: 'babel'
-      }
-    ]
+
+  entry: [
+      //'webpack-hot-middleware/client',
+      './index'
+  ],
+
+  output: {
+        path: path.join(__dirname, 'dist'),
+        filename: '[name].bundle.js',
+        publicPath: '/static/'
+  },
+  module: {
+      loaders: [
+        {test: /\.css$/ , loader: 'style-loader!css-loader?sourceMap'},
+        {
+          // Test for js or jsx files.
+          test: /\.jsx?$/,
+          exclude: /node_modules/,
+          loader: 'babel'
+        }
+      ]
   },
 
   externals: {
@@ -62,13 +58,5 @@ module.exports = {
         "jquery-ui": "jquery-ui/jquery-ui.js",
     }
   }
-  /*
-  ,plugins: [
-    new webpack.HotModuleReplacementPlugin(),
-    new webpack.NoErrorsPlugin(),
-    new webpack.ResolverPlugin(
-        new webpack.ResolverPlugin.DirectoryDescriptionFilePlugin("bower.json", ["main"])
-    )
-  ]
-  */
+
 };
