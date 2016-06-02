@@ -12,6 +12,10 @@ export const VisibilityFilters = {
   SHOW_REVERSE: 'SHOW_Reverse'
 }
 
+export const foovar={
+	foo:'fooaaa'
+}
+
 
 export function addActivity(text) {
   return { type: ADD_ACTIVITY, text }
