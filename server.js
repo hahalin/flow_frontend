@@ -1,23 +1,53 @@
+// var webpack = require('webpack')
+// var webpackDevMiddleware = require('webpack-dev-middleware')
+// var webpackHotMiddleware = require('webpack-hot-middleware')
+// var config = require('./webpack.config')
+
+// var app = new (require('express'))()
+// var port = 3000
+
+// var compiler = webpack(config)
+// app.use(webpackDevMiddleware(compiler, { noInfo: true, publicPath: config.output.publicPath }))
+// app.use(webpackHotMiddleware(compiler))
+
+// app.get("/", function(req, res) {
+//   res.sendFile(__dirname + '/index.html')
+// })
+
+// app.listen(port, function(error) {
+//   if (error) {
+//     console.error(error)
+//   } else {
+//     console.info("==> 🌎  Listening on port %s. Open up http://localhost:%s/ in your browser.", port, port)
+//   }
+// })
+
+/*eslint-disable no-console, no-var */
+var express = require('express')
+var rewrite = require('express-urlrewrite')
 var webpack = require('webpack')
 var webpackDevMiddleware = require('webpack-dev-middleware')
-var webpackHotMiddleware = require('webpack-hot-middleware')
-var config = require('./webpack.config')
+//var WebpackConfig = require('./webpack.config')
 
-var app = new (require('express'))()
-var port = 3000
+var app = express()
 
-var compiler = webpack(config)
-app.use(webpackDevMiddleware(compiler, { noInfo: true, publicPath: config.output.publicPath }))
-app.use(webpackHotMiddleware(compiler))
+// app.use(webpackDevMiddleware(webpack(WebpackConfig), {
+//   publicPath: '/__build__/',
+//   stats: {
+//     colors: true
+//   }
+// }))
 
-app.get("/", function(req, res) {
-  res.sendFile(__dirname + '/index.html')
+var fs = require('fs')
+var path = require('path')
+
+fs.readdirSync(__dirname).forEach(function (file) {
+  // if (fs.statSync(path.join(__dirname, file)).isDirectory())
+  //   app.use(rewrite('/' + file + '/*', '/' + file + '/index.html'))
 })
 
-app.listen(port, function(error) {
-  if (error) {
-    console.error(error)
-  } else {
-    console.info("==> 🌎  Listening on port %s. Open up http://localhost:%s/ in your browser.", port, port)
-  }
+app.use(express.static(__dirname))
+
+app.listen(8000, function () {
+  console.log('Server listening on http://localhost:8000, Ctrl+C to stop')
 })

@@ -13,10 +13,11 @@ var ReactDOM =require('react-dom');
 
 module.exports = {
 
-  entry: [
+  entry: {
       //'webpack-hot-middleware/client',
-      './index'
-  ],
+      main:'./index',
+      home:'./home.jsx'
+  },
 
   output: {
         path: path.join(__dirname, 'dist'),

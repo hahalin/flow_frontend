@@ -2,13 +2,14 @@
 
 import { combineReducers } from 'redux'
 
-import { ADD_ACTIVITY, TOGGLE_ACTIVITIES, SET_VISIBILITY_FILTER, VisibilityFilters,foovar } from '../actions/actions'
+import { ADD_ACTIVITY, TOGGLE_ACTIVITIES, SET_VISIBILITY_FILTER, VisibilityFilters,foovar }
+  from '../actions/actions'
+
+import {visibilityFilter} from './visibilityFilter'
 
 const { SHOW_ALL } = VisibilityFilters
 
 const {foo} = foovar
-
-
 
 function foofun(state = foo,action)
 {
@@ -23,14 +24,16 @@ function foofun(state = foo,action)
   return state;
 }
 
-function visibilityFilter(state = SHOW_ALL, action) {
-  switch (action.type) {
-    case SET_VISIBILITY_FILTER:
-      return action.filter
-    default:
-      return state
-  }
-}
+// function visibilityFilter(state = SHOW_ALL, action) {
+//   switch (action.type) {
+//     case SET_VISIBILITY_FILTER:
+//       return action.filter
+//     default:
+//       return state
+//   }
+// }
+
+
 
 
 function activities(state = [], action) {
@@ -59,7 +62,7 @@ function activities(state = [], action) {
 
 const EFormApp = combineReducers({
   foofun,
-  visibilityFilter,
+  //visibilityFilter,
   activities
 })
 

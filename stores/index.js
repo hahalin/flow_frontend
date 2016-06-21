@@ -1,6 +1,7 @@
 import { createStore } from 'redux'
 import EFormApp from '../reducers/reducers'
-import { ADD_ACTIVITY, TOGGLE_ACTIVITIES, SET_VISIBILITY_FILTER, VisibilityFilters,addActivity,setVisibilityFilter} from '../actions/actions'
+import { ADD_ACTIVITY, TOGGLE_ACTIVITIES, SET_VISIBILITY_FILTER, VisibilityFilters,
+	addActivity,setVisibilityFilter} from '../actions/actions'
 
 
 let store = createStore(EFormApp)
@@ -25,6 +26,7 @@ store.dispatch(addActivity('Learn about reducers'))
 store.dispatch(addActivity('Learn about store'))
 //store.dispatch(toggleTodo(0))
 //store.dispatch(toggleTodo(1))
-store.dispatch(setVisibilityFilter(VisibilityFilters.SHOW_COMPLETED))
+
+//store.dispatch(setVisibilityFilter(VisibilityFilters.SHOW_COMPLETED))
 
 unsubscribe()
