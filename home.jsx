@@ -123,20 +123,21 @@ function requireAuth(nextState, replace) {
 
 
 
-ReactDOM.render(<Pmain/>, document.getElementById('main'));
+//ReactDOM.render(<Pmain/>, document.getElementById('main'));
+ReactDOM.render(<Pmain/>, document.body);
 //ReactDOM.render(<SubMenu/>, document.getElementById('submenu'));
 
-render((
-	<Router history={browserHistory}>
-		<Route path="/" component={App}>
-	    	<Route path="login" component={Login} />
-    	    <Route path="about" component={About} />
-			<Route path="dashboard" component={Dashboard} 
-				onEnter={requireAuth} 
-			/>
-		</Route>
-	</Router>),
-	document.getElementById('mainmenu')
-)
+// render((
+// 	<Router history={browserHistory}>
+// 		<Route path="/" component={App}>
+// 	    	<Route path="login" component={Login} />
+//     	    <Route path="about" component={About} />
+// 			<Route path="dashboard" component={Dashboard} 
+// 				onEnter={requireAuth} 
+// 			/>
+// 		</Route>
+// 	</Router>),
+// 	document.getElementById('mainmenu')
+// )
 
 //
