@@ -18,7 +18,7 @@ export const foovar={
 
 
 export function addActivity(text) {
-  return { type: ADD_ACTIVITY, text }
+  return { type: ADD_ACTIVITY, payload:text }
 }
 
 

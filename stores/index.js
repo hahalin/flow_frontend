@@ -11,12 +11,12 @@ console.log(store.getState())
 
 let unsubscribe = store.subscribe(() =>
   {
-	  var state=store.getState();
+//	  var state=store.getState();
 	  console.log(store.getState())
-	  console.log('activities:');
-	  console.log(state.activities);
-	  console.log('foo:');
-	  console.log(state.foofun);
+//	  console.log('activities:');
+//	  console.log(state);
+	  //console.log('foo:');
+	  //console.log(state.foofun);
   }
 )
 
@@ -29,4 +29,4 @@ store.dispatch(addActivity('Learn about store'))
 
 //store.dispatch(setVisibilityFilter(VisibilityFilters.SHOW_COMPLETED))
 
-unsubscribe()
+//unsubscribe()

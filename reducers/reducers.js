@@ -7,6 +7,10 @@ import { ADD_ACTIVITY, TOGGLE_ACTIVITIES, SET_VISIBILITY_FILTER, VisibilityFilte
 
 import {visibilityFilter} from './visibilityFilter'
 
+import {createReducer} from '../utils'
+
+import {activities,LOGIN_USER_REQUEST, LOGIN_USER_SUCCESS, LOGIN_USER_FAILURE, LOGOUT_USER} from '../constants'
+
 const { SHOW_ALL } = VisibilityFilters
 
 const {foo} = foovar
@@ -36,7 +40,7 @@ function foofun(state = foo,action)
 
 
 
-function activities(state = [], action) {
+function activitiesa(state = [], action) {
   switch (action.type) {
     case ADD_ACTIVITY:
       return [
@@ -63,7 +67,32 @@ function activities(state = [], action) {
 const EFormApp = combineReducers({
   foofun,
   //visibilityFilter,
-  activities
+  activitiesa
 })
 
-export default EFormApp
+
+const initialState = {
+    actlist:[],
+    token: null,
+    userName: null,
+    isAuthenticated: false,
+    isAuthenticating: false,
+    statusText: null
+    
+};
+
+
+
+const ReducerApp = createReducer(initialState,{
+    
+    [ADD_ACTIVITY]:(state , payload)=>{
+      var list= [...state.actlist,{text:payload,complete:false}];
+      state.actlist=list;
+      return state;
+      
+      //return Object.assign({}, state);
+    }
+})
+
+
+export default ReducerApp

@@ -6,6 +6,7 @@ import { browserHistory, Router, Route, Link, withRouter } from 'react-router'
 import Pmain from './widget/main'
 import SubMenu from './widget/submenu'
 import auth from './auth/auth'
+import store from './stores'
 
 
 const Dashboard = React.createClass({
